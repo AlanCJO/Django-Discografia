@@ -1,0 +1,24 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="container mt3">
+    <table class="table">
+        <thead class="thead-dark">
+            <tr>
+                <th scope="col">Música</th>
+                <th scope="col">Segundos</th>
+                <th scope="col">Álbum</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for music in musicas %}
+            <tr>
+                <td>{{music.titulo}}</td>   
+                <td>{{music.segundos}}</td>
+                <td>{{music.album_id}}</td>
+            </tr>
+        {% endfor %} 
+        </tbody>
+    </table>
+</div>
+{% endblock %}
