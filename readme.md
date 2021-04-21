@@ -34,7 +34,7 @@ O procedimento tem os seguintes passos:
             <td>album - Foreign Key</td>
         </tr>
     </tbody>
-    </table>
+</table>
 
 2. Faça um teste no admin
 <br>
