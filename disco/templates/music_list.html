@@ -8,7 +8,7 @@
 {% block content %}
 
 <div class="container modal-body">
-    <h1 class="title">Todas as Músicas Disponíveis</h1>
+    <h1 class="title">Sua Playlist</h1>
     
     <table class="table">
         <thead class="thead-dark">
@@ -16,6 +16,7 @@
                 <th scope="col">Música</th>
                 <th scope="col">Segundos</th>
                 <th scope="col">Álbum</th>
+                <th colspan="2" scope="col">Ações</th>
             </tr>
         </thead>
         <tbody>
@@ -33,6 +34,12 @@
                     {% endif %}
 
                 {% endfor %}
+                <td id="edit-music">
+                    <a class="btn btn-primary" href="{% url 'disco:editar-musica' music.pk %}">Editar</a>
+                </td>
+                <td>
+                    <a class="btn btn-danger" href="#">Excluir</a>
+                </td>
 
             </tr>
         {% endfor %} 
@@ -41,7 +48,7 @@
 
     <!-- nova música -->
     <div id="new-music">
-        <a class="btn btn-success" href="{% url 'disco:nova-musica' %}">Adiconar Música</a>
+        <a class="btn btn-success" href="{% url 'disco:nova-musica' %}">Adicionar Música</a>
     </div>
 
 </div>

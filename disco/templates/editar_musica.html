@@ -1,0 +1,13 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+
+<h1>Alterar faixa</h1>
+<form action="{% url 'disco:editar-musica' pk %}" method="POST">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button class="btn btn-primary" type="submit">Alterar</button>
+</form>
+
+{% endblock %}

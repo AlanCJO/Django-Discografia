@@ -12,3 +12,11 @@ h1.title {
     justify-content: center;
     margin-top: 2rem
 }
+
+th[colspan="2"] {
+    text-align: center;
+}
+
+#edit-music {
+    text-align: right
+}
