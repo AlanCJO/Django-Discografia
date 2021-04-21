@@ -5,4 +5,4 @@ class MusicaForm(ModelForm):
 
     class Meta:
         model = Musica
-        fields = ['titulo, segundos, album']
+        fields = ['titulo', 'segundos', 'album']

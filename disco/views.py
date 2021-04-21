@@ -1,6 +1,6 @@
-from django.shortcuts import render
-
+from django.shortcuts import render, redirect
 from .models import Banda, Album, Musica
+from .forms import MusicaForm
 
 def getAllMusics(request):
     musicas = Musica.objects.all()
@@ -11,11 +11,19 @@ def getAllMusics(request):
     context = {
         "musicas": musicas,
         "albuns": albuns
-
     }
 
     return render(request, template_name, context)
 
 def musica_new(request):
     if request.method == 'POST':
-        form 
+        form = MusicaForm(request.POST)
+        if form.is_valid():
+            form.save
+            return redirect('disco:musicas')
+    else:
+        template_name = 'nova_musica.html'
+        context = {
+            'form': MusicaForm()
+        }
+        return render(request, template_name, context)

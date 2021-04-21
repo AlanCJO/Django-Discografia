@@ -7,3 +7,8 @@ h1.title {
     padding: 0.8rem
 }
 
+#new-music {
+    display: flex;
+    justify-content: center;
+    margin-top: 2rem
+}

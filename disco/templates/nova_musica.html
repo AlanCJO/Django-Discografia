@@ -1,0 +1,13 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+
+<h1>Adicione uma Nova Música</h1>
+<form action="{% url 'disco:nova-musica' %}" method="POST">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button type="submit">Adicionar</button>
+</form>
+
+{% endblock %}
