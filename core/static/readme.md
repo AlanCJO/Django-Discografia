@@ -1,0 +1,1 @@
+Aqui é onde o Django busca os arquivos estáticos 
