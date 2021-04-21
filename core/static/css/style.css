@@ -232,3 +232,39 @@ footer {
     white-space: nowrap;
     width: 1px;
 }
+
+
+/* Minha estilização */
+.navbar a {
+    cursor: pointer;
+    text-decoration: none;
+
+    font-size: 1.2rem;
+    font-family: 'Poppins', sans-serif;
+    font-weight: 700;
+}
+
+.navbar a:hover {
+    font-size: 1.4rem;
+    opacity: 0.6
+
+}
+
+h1.title {
+    font-size: 2rem;
+    font-family: 'Poppins', sans-serif
+}
+
+.four {
+    color: green
+}
+
+.two {
+    color: red
+}
+
+p.copyright {
+    color: #19865C;
+    font-family: 'Poppins', sans-serif;
+    text-align: center;
+}

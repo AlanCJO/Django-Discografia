@@ -1,12 +1,15 @@
 {% extends 'base.html' %}
+{% load static %}    
 
 {% block homepage %}
+<link rel="stylesheet" href="{% static 'css/style.css' %}">
 <header>
-    <a class="logo" href="https://www.djangoproject.com/" target="_blank" rel="noopener">
-        django
+    <a class="logo" href="/" rel="noopener">
+        Discografia 42
     </a>
-    <p>Ver as <a href="https://docs.djangoproject.com/en/3.2/releases/" target="_blank" rel="noopener">notas de
-            lançamento</a> do Django 3.2</p>
+    <p class="navbar">
+        <a href="#">Lista de Músicas</a>
+    </p>
 </header>
 <main>
     <svg class="figure" viewBox="0 0 508 268" aria-hidden="true">
@@ -28,13 +31,13 @@
             d="M250.27 178.834l-5.32-8.93s-2.47-5.7 3.458-6.118h10.26s6.232.266 3.306 6.194l-5.244 8.93s-3.23 4.37-6.46 0v-.076z"
             fill="#AA2247" />
     </svg>
-    <h1>A instalação foi com sucesso! Parabéns!</h1>
-    <p>Você está vendo esta página pois possui <a href="https://docs.djangoproject.com/en/3.2/ref/settings/#debug"
-            target="_blank" rel="noopener">DEBUG=True</a> no seu arquivo de configurações e não configurou nenhuma URL.
+    <h1 class="title">Bem-vindo a Discografia <span class="four">4</span><span class="two">2</span></h1>
+    <p>
+
     </p>
 </main>
 <footer>
-    <a class="option" href="https://docs.djangoproject.com/en/3.2/" target="_blank" rel="noopener">
+    <!-- <a class="option" href="https://docs.djangoproject.com/en/3.2/" target="_blank" rel="noopener">
         <svg viewBox="0 0 24 24" aria-hidden="true">
             <path
                 d="M9 21c0 .55.45 1 1 1h4c.55 0 1-.45 1-1v-1H9v1zm3-19C8.14 2 5 5.14 5 9c0 2.38 1.19 4.47 3 5.74V17c0 .55.45 1 1 1h6c.55 0 1-.45 1-1v-2.26c1.81-1.27 3-3.36 3-5.74 0-3.86-3.14-7-7-7zm2.85 11.1l-.85.6V16h-4v-2.3l-.85-.6A4.997 4.997 0 017 9c0-2.76 2.24-5 5-5s5 2.24 5 5c0 1.63-.8 3.16-2.15 4.1z">
@@ -64,7 +67,11 @@
             <span class="option__heading">Comunidade Django</span><span class="sr-only">.</span><br>
             Conecte-se, obtenha ajuda ou contribua
         </p>
-    </a>
+    </a> -->
+    <p class="copyright">
+        Desenvolvido por Alan Oliveira<br>
+        Matrícula: 2020101583
+    </p>
 </footer>
 
 {% endblock %}
