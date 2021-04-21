@@ -1,7 +1,15 @@
 {% extends 'base.html' %}
+{% load static %}
+
+{% block style %}
+    <link rel="stylesheet" href="{% static 'css/disco/music_list.css' %}">
+{% endblock %}
 
 {% block content %}
-<div class="container mt3">
+
+<div class="container modal-body">
+    <h1 class="title">Todas as Músicas Disponíveis</h1>
+    
     <table class="table">
         <thead class="thead-dark">
             <tr>
@@ -15,7 +23,17 @@
             <tr>
                 <td>{{music.titulo}}</td>   
                 <td>{{music.segundos}}</td>
-                <td>{{music.album_id}}</td>
+
+                {% for album in albuns %}
+
+                    {% if music.album_id == album.id %}
+
+                    <td>{{album.titulo}}</td>
+
+                    {% endif %}
+
+                {% endfor %}
+
             </tr>
         {% endfor %} 
         </tbody>
