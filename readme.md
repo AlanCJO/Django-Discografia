@@ -21,7 +21,7 @@ O procedimento tem os seguintes passos:
         <tr>
             <td>nome - Charfield</td>
             <td>titulo - CharField</td>
-            <td>data - DateField </td>
+            <td>titulo - CharField </td>
         </tr>
         <tr>
             <td></td>
