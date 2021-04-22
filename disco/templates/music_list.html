@@ -38,7 +38,7 @@
                     <a class="btn btn-primary" href="{% url 'disco:editar-musica' music.pk %}">Editar</a>
                 </td>
                 <td>
-                    <a class="btn btn-danger" href="#">Excluir</a>
+                    <a class="btn btn-danger" href="{% url 'disco:excluir-musica' music.pk %}">Excluir</a>
                 </td>
 
             </tr>

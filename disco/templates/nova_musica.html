@@ -7,7 +7,7 @@
 <form action="{% url 'disco:nova-musica' %}" method="POST">
     {% csrf_token %}
     {{ form.as_p }}
-    <button type="submit">Adicionar</button>
+    <button type="submit" class="btn btn-success">Adicionar</button>
 </form>
 
 {% endblock %}

@@ -2,20 +2,7 @@ from django.shortcuts import render, redirect
 from .models import Banda, Album, Musica
 from .forms import MusicaForm
 
-def getAllMusics(request):
-    musicas = Musica.objects.all()
-    albuns = Album.objects.all()
-
-    template_name = "music_list.html"
-
-    context = {
-        "musicas": musicas,
-        "albuns": albuns
-    }
-
-    return render(request, template_name, context)
-
-
+# C
 def musica_new(request):
     if request.method == 'POST':
         form = MusicaForm(request.POST)
@@ -30,6 +17,22 @@ def musica_new(request):
         return render(request, template_name, context)
 
 
+# R
+def getAllMusics(request):
+    musicas = Musica.objects.all()
+    albuns = Album.objects.all()
+
+    template_name = "music_list.html"
+
+    context = {
+        "musicas": musicas,
+        "albuns": albuns
+    }
+
+    return render(request, template_name, context)
+
+
+# U
 def musica_edit(request, pk):
     musica = Musica.objects.get(pk=pk)
     if request.method == 'POST':
@@ -46,5 +49,9 @@ def musica_edit(request, pk):
         return render(request, template_name, context)
 
 
+# D
 def musica_delete(request, pk):
-    pass
+    musica = Musica.objects.get(pk=pk)
+    musica.delete()
+    return redirect('disco:musicas')
+    
