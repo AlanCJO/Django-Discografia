@@ -38,9 +38,9 @@
                     <a class="btn btn-primary" href="{% url 'disco:editar-musica' music.pk %}">Editar</a>
                 </td>
                 <td>
-                    <a class="btn btn-danger" href="{% url 'disco:excluir-musica' music.pk %}">Excluir</a>
+                    <a class="btn btn-danger" href="#">Excluir</a>
                 </td>
-
+                <!-- { url 'disco:excluir-musica' music.pk } -->
             </tr>
         {% endfor %} 
         </tbody>
@@ -50,6 +50,9 @@
     <div id="new-music">
         <a class="btn btn-success" href="{% url 'disco:nova-musica' %}">Adicionar Música</a>
     </div>
+
+    {% block script %}
+    {% endblock %}
 
 </div>
 {% endblock %}

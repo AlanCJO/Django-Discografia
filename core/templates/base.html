@@ -74,9 +74,11 @@
             Matrícula: 2020101583
         </p>
     </footer>
-
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
+ 
     <script src="//cdn.jsdelivr.net/npm/sweetalert2@10"></script>
+    <script src="{% static 'js/alert.js' %}" defer></script>
+    {% block script %}
+    {% endblock %}
 </body>
 
 </html>
