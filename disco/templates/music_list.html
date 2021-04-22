@@ -2,14 +2,26 @@
 {% load static %}
 
 {% block style %}
-    <link rel="stylesheet" href="{% static 'css/disco/music_list.css' %}">
+<link rel="stylesheet" href="{% static 'css/disco/music_list.css' %}">
+<style>
+    div.swal2-actions {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 10px;
+    }
+
+    .swal2-actions > button {
+        width: 40%
+    }
+</style>
 {% endblock %}
 
 {% block content %}
 
 <div class="container modal-body">
     <h1 class="title">Sua Playlist</h1>
-    
+
     <table class="table">
         <thead class="thead-dark">
             <tr>
@@ -20,29 +32,30 @@
             </tr>
         </thead>
         <tbody>
-        {% for music in musicas %}
+            {% for music in musicas %}
             <tr>
-                <td>{{music.titulo}}</td>   
+                <td>{{music.titulo}}</td>
                 <td>{{music.segundos}}</td>
 
                 {% for album in albuns %}
 
-                    {% if music.album_id == album.id %}
+                {% if music.album_id == album.id %}
 
-                    <td>{{album.titulo}}</td>
+                <td>{{album.titulo}}</td>
 
-                    {% endif %}
+                {% endif %}
 
                 {% endfor %}
                 <td id="edit-music">
                     <a class="btn btn-primary" href="{% url 'disco:editar-musica' music.pk %}">Editar</a>
                 </td>
                 <td>
-                    <a class="btn btn-danger" href="#">Excluir</a>
+                    <a class="btn btn-danger" href="{% url 'disco:excluir-musica' music.pk %}"
+                        onclick="alerta(event)">Excluir</a>
                 </td>
                 <!-- { url 'disco:excluir-musica' music.pk } -->
             </tr>
-        {% endfor %} 
+            {% endfor %}
         </tbody>
     </table>
 
@@ -50,9 +63,61 @@
     <div id="new-music">
         <a class="btn btn-success" href="{% url 'disco:nova-musica' %}">Adicionar Música</a>
     </div>
-
-    {% block script %}
-    {% endblock %}
-
 </div>
+
+<script defer>
+    function alerta(event) {
+        event.preventDefault();
+
+        const link = event.target.href
+        const linkLength = link.length
+        const idMusica = link[linkLength - 2]
+
+        alertaDoce(link); // kkkkkkkkkk (estava dando conflito colocando o nome da biblioteca na função, então vai em br mesmo)
+    }
+
+    function alertaDoce(link) {
+        const swalWithBootstrapButtons = Swal.mixin({
+            customClass: {
+                confirmButton: 'btn btn-danger',
+                cancelButton: 'btn btn-success'
+            },
+            buttonsStyling: false
+        })
+
+        swalWithBootstrapButtons.fire({
+            title: 'Você tem certeza??',
+            text: "Você não poderá reverter isso!",
+            icon: 'warning',
+            showCancelButton: true,
+            confirmButtonText: 'Sim, deletar música!',
+            cancelButtonText: 'Não, cancelar!',
+            reverseButtons: true
+        }).then((result) => {
+            if (result.isConfirmed) {
+                swalWithBootstrapButtons.fire(
+                    'Deletado!',
+                    'Sua música foi removida da playlist!',
+                    'success'
+                );
+
+                // Se confirmar direcionar para a rota que chama a view de exclusão
+                setTimeout(() => {
+                    window.location.href = link
+                }, 1000);
+
+            } else if (
+                /* Read more about handling dismissals below */
+                result.dismiss === Swal.DismissReason.cancel
+            ) {
+                swalWithBootstrapButtons.fire(
+                    'Cancelado',
+                    'Sua música está segura :)',
+                    'error'
+                );
+            }
+        })
+    }
+</script>
+
 {% endblock %}

@@ -1,13 +1,25 @@
 {% extends 'base.html' %}
 {% load static %}
 
+{% block style %}
+{% endblock %}
+
 {% block content %}
 
-<h1>Adicione uma Nova Música</h1>
+<h1 style="text-align:center">Adicione uma Nova Música</h1>
 <form action="{% url 'disco:nova-musica' %}" method="POST">
-    {% csrf_token %}
-    {{ form.as_p }}
+    <div class=form-group>
+        {% csrf_token %}
+        {{ form.as_p }}
+    </div>
     <button type="submit" class="btn btn-success">Adicionar</button>
 </form>
+
+<script defer>
+    const inputs = document.querySelectorAll('p input');
+
+    inputs.forEach(input => input.classList.add("form-control"));
+
+</script>
 
 {% endblock %}
