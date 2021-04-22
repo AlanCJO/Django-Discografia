@@ -21,12 +21,14 @@ def musica_new(request):
 def getAllMusics(request):
     musicas = Musica.objects.all()
     albuns = Album.objects.all()
+    bandas = Banda.objects.all()
 
     template_name = "music_list.html"
 
     context = {
         "musicas": musicas,
-        "albuns": albuns
+        "albuns": albuns,
+        "bandas": bandas
     }
 
     return render(request, template_name, context)

@@ -27,6 +27,7 @@
             <tr>
                 <th scope="col">Música</th>
                 <th scope="col">Segundos</th>
+                <th scope="col">Artista</th>
                 <th scope="col">Álbum</th>
                 <th colspan="2" scope="col">Ações</th>
             </tr>
@@ -39,13 +40,24 @@
 
                 {% for album in albuns %}
 
-                {% if music.album_id == album.id %}
+                    {% for banda in bandas %}
 
-                <td>{{album.titulo}}</td>
+                        {% if album.banda_id == banda.id and music.album_id == album.id %}
 
-                {% endif %}
+                            <td>{{ banda.nome }}</td>
+
+                        {% endif %}
+
+                    {% endfor %}          
+
+                    {% if music.album_id == album.id %}
+                        <!-- Mostrando titulo do album de acordo com a música -->
+                        <td>{{album.titulo}}</td>
+
+                    {% endif %}
 
                 {% endfor %}
+
                 <td id="edit-music">
                     <a class="btn btn-primary" href="{% url 'disco:editar-musica' music.pk %}">Editar</a>
                 </td>
@@ -53,7 +65,6 @@
                     <a class="btn btn-danger" href="{% url 'disco:excluir-musica' music.pk %}"
                         onclick="alerta(event)">Excluir</a>
                 </td>
-                <!-- { url 'disco:excluir-musica' music.pk } -->
             </tr>
             {% endfor %}
         </tbody>
