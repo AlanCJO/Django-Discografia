@@ -9,6 +9,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Discografia</title>
 
+    <!-- Incluir estilos nas páginas que irá herdar de base.html -->
     {% block style %}
     {% endblock %}
     
@@ -28,7 +29,7 @@
         <a class="logo" href="/" rel="noopener">
             Discografia 42
         </a>
-        <a class="lista" href="disco/musica-list">Lista de Músicas</a>
+        <a class="lista" href="{% url 'disco:musicas' %}">Lista de Músicas</a>
     </header>
 
     <!-- Conteúdo Dinâmico -->
