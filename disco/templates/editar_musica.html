@@ -1,13 +1,57 @@
 {% extends 'base.html' %}
 {% load static %}
 
+{% block style %}
+    <style>
+        * {
+            font-family: 'Poppins', sans-serif;
+        }
+
+        h1 {
+            text-align: center;
+            padding: 20px !important;
+            font-weight: 700 !important;
+
+            font-family: 'Poppins', sans-serif !important;
+
+        }
+
+        .button {
+            display: flex;
+            justify-content: center;
+            padding: 10px;
+        
+        }
+
+        label {
+            padding-top: 6px
+        }
+    </style>
+{% endblock %}
+
 {% block content %}
 
-<h1 style="text-align:center">Alterar faixa</h1>
+<h1 >Alterar faixa</h1>
 <form action="{% url 'disco:editar-musica' pk %}" method="POST">
-    {% csrf_token %}
-    {{ form.as_p }}
-    <button class="btn btn-primary" type="submit">Alterar</button>
+    <div class="form-group col-md-6 container">
+        {% csrf_token %}
+        {{ form.as_p }}
+    </div>
+    <div class="button">
+        <button class="btn btn-primary" type="submit">Alterar</button>
+    </div>
 </form>
+
+<script defer>
+    const inputs = document.querySelectorAll('p input');
+    const select = document.getElementById('id_album')
+
+    // Já que não dá pra adicionar a classe no forms do Django
+    // Não tem problema, eu espero a página carregar e coloco a
+    // classe nos inputs :D
+    inputs.forEach(input => input.classList.add("form-control"));
+    select.classList.add("form-control");
+
+</script>
 
 {% endblock %}
