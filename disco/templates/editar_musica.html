@@ -2,31 +2,7 @@
 {% load static %}
 
 {% block style %}
-    <style>
-        * {
-            font-family: 'Poppins', sans-serif;
-        }
-
-        h1 {
-            text-align: center;
-            padding: 20px !important;
-            font-weight: 700 !important;
-
-            font-family: 'Poppins', sans-serif !important;
-
-        }
-
-        .button {
-            display: flex;
-            justify-content: center;
-            padding: 10px;
-        
-        }
-
-        label {
-            padding-top: 6px
-        }
-    </style>
+    <link rel="stylesheet" href="{% static 'css/disco/music_edit_add.css' %}">
 {% endblock %}
 
 {% block content %}
@@ -42,16 +18,8 @@
     </div>
 </form>
 
-<script defer>
-    const inputs = document.querySelectorAll('p input');
-    const select = document.getElementById('id_album')
+{% endblock %}
 
-    // Já que não dá pra adicionar a classe no forms do Django
-    // Não tem problema, eu espero a página carregar e coloco a
-    // classe nos inputs :D
-    inputs.forEach(input => input.classList.add("form-control"));
-    select.classList.add("form-control");
-
-</script>
-
+{% block script %}
+    <script defer src="{% static 'js/disco/includeClass_add_edit.js' %}"></script>
 {% endblock %}
