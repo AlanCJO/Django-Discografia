@@ -54,7 +54,7 @@
                         onclick="alerta(event)">Excluir</a>
                 </td>
             </tr>
-            {% endfor %}
+            {% endfor %} 
         </tbody>
     </table>
 
@@ -62,6 +62,23 @@
     <div id="new-music">
         <a class="btn btn-success" href="{% url 'disco:nova-musica' %}">Adicionar Música</a>
     </div>
+
+</div>
+<!-- Paginação -->
+<div class="pagination">
+    <span class="step-links">
+        {% if musicas.has_previous %}        
+            <a href="?page={{ musicas.previous_page_number }}">Anterior</a>
+        {% endif %}
+
+        <span class="current">
+            {{ musicas.number }} de {{ musicas.paginator.num_pages }}
+        </span>
+
+        {% if musicas.has_next %}
+            <a href="?page={{ musicas.next_page_number }}">Próxima</a>
+        {% endif %}
+    </span>        
 </div>
 
 {% endblock %}

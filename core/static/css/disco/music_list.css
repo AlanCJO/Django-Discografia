@@ -10,7 +10,7 @@ h1.title {
 #new-music {
     display: flex;
     justify-content: center;
-    margin-top: 2rem
+    margin-top: 1rem
 }
 
 th[colspan="2"] {
@@ -31,4 +31,9 @@ div.swal2-actions {
 
 .swal2-actions > button {
     width: 40%
+}
+
+.pagination {
+    display: flex;
+    justify-content: center
 }

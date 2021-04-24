@@ -1,6 +1,7 @@
 from django.shortcuts import render, redirect
 from .models import Banda, Album, Musica
 from .forms import MusicaForm
+from django.core.paginator import Paginator
 
 # C
 def musica_new(request):
@@ -19,16 +20,22 @@ def musica_new(request):
 
 # R
 def getAllMusics(request):
-    musicas = Musica.objects.all()
+    musicas = Musica.objects.all().order_by('-segundos')
     albuns = Album.objects.all()
     bandas = Banda.objects.all()
+
+    # paginação
+    paginator = Paginator(musicas, 7) # define quantidade a ser exibido
+ 
+    page = request.GET.get('page') # verifica em qual página está
+    posts = paginator.get_page(page) # mostra quais posts deve mostrar na página determinada
 
     template_name = "music_list.html"
 
     context = {
-        "musicas": musicas,
         "albuns": albuns,
-        "bandas": bandas
+        "bandas": bandas,
+        "musicas": posts
     }
 
     return render(request, template_name, context)
