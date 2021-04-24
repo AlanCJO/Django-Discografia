@@ -32,13 +32,14 @@
         <a class="lista" href="{% url 'disco:musicas' %}">Lista de Músicas</a>
     </header>
 
-    <!-- Conteúdo Dinâmico -->
+    <!-- Inicio do Conteúdo Dinâmico -->
     {% block content %}
     {% endblock %}
+    <!-- Fim do Conteúdo Dinâmico -->
 
     <footer>
         <a class="option" href="https://github.com/AlanCJO/Django-Discografia" target="_blank" rel="noopener">
-            <img id="my-photo" src="https://media-exp1.licdn.com/dms/image/sync/C4E27AQHX4C0RiJAn4A/articleshare-shrink_800/0/1618110347660?e=1619146800&v=beta&t=8VQcVqUgZPROSfQy6-21xaHbA-gTNKv0xvHzsZ7zN_Q" alt="minha foto">
+            <img id="my-photo" src="{% static 'img/personal-photo.jpeg' %}" alt="minha foto">
             <p>
                 <span class="option__heading">Desenvolvido por Alan Oliveira</span><span class="sr-only">.</span><br>
                 Matrícula: 2020101583
